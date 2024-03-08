@@ -1,4 +1,56 @@
-#heading{
+.header{
+    display: flex;
+    justify-content: space-between;
+    color: brown;
+    border: solid saddlebrown;
+}
+.logo{
+    width:100px !important;
+    
+}
+.nav-items{
+    padding: 5px;
+}
+.nav-items > ul {
+    display :flex;
+    list-style-type: none;
+    align-items: right;
+    font-weight: bold;
+    
+}
+.nav-items > ul > li{
+    padding: 10px;
+    margin: 10 px;
+}
+.restrau-contatiner{
+    display: flex;
+    flex-wrap: wrap;
+}
+.res-card{
+    margin: 5px;
+    width:200px;
+    padding: 5px;;
+    color: white;
+    background-color: gray;
+}
+.res-card:hover{
 
-    color:red
+    border: solid black;
+    cursor: pointer;
+    
+}
+.restcard-logo{
+    
+    width: 100%;
+    
+}
+.search{
+    padding: 10px;
+}
+.filter-btn{
+
+    margin: 8px;
+    cursor: pointer;
+    background-color: cadetblue;
+    color: white;
 }

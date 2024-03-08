@@ -4,6 +4,8 @@
   "description": "this is namastereact by sreyas",
   "main": "App.js",
   "scripts": {
+    "start": "parcel Index.html",
+    "build": "parcel build Index.html",
     "test": "jest"
   },
   "repository": {
@@ -20,7 +22,12 @@
     "url": "https://github.com/sreyas1986/NamasteReact/issues"
   },
   "homepage": "https://github.com/sreyas1986/NamasteReact#readme",
+  "dependencies": {
+    "parcel": "^2.11.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
-    "parcel": "^2.11.0"
+    "process": "^0.11.10"
   }
 }
