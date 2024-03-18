@@ -1,4 +1,4 @@
-import React  from "react";
+import React, { lazy, Suspense }  from "react";
 import ReactDOM from "react-dom/client";
 import Header  from "./components/Header";
 import Body from "./components/Body"
@@ -8,10 +8,11 @@ import Contact from "./components/Contact";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
+// import Grocery from "./components/Grocery";
 const styleCard = { backgroundColor: "#a8989b" };
 
 
-
+const Grocery = lazy(() => import ("./components/Grocery"))
  const AppLayout =() => {
  return   (
     <div className="App">
@@ -43,6 +44,10 @@ const styleCard = { backgroundColor: "#a8989b" };
         {
             path:"/restaurant/:resId",
             element:<RestrauntMenu />
+        },
+        {
+            path:"/Grocery",
+            element:(<Suspense fallback={<h2>Loading the Grocery in a while</h2>}><Grocery /></Suspense>)
         }
     ],
         errorElement: <Error />,
