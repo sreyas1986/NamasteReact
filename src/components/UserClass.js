@@ -1,4 +1,5 @@
 import React from "react"
+import UserContext from "../util/UserContext";
 class UserClass extends React.Component {
 constructor(props){
     super(props);
@@ -34,6 +35,9 @@ async componentDidMount(){
                     <img src={avatar_url} />
                     <h4>Name:{name}</h4>
                     <h4>Location:{this.state.userinfo.location}</h4>
+                    <div>
+                        Logged in user : <UserContext.Consumer>{(data)=> data.loggedInUser}</UserContext.Consumer>
+                    </div>
 
             </div>)
     }
