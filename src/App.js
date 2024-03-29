@@ -10,9 +10,11 @@ import Error from "./components/Error";
 import RestrauntMenu from "./components/RestrauntMenu";
 import UserContext from "./util/UserContext";
 // import Grocery from "./components/Grocery";
+import { Provider } from "react-redux";
+import appStore from "./util/appStore";
+import Cart from "./components/cart";
 const styleCard = { backgroundColor: "#a8989b" };
-
-
+import './style.css';
 //const Grocery = lazy(() => import ("./components/Grocery"))
 
  const AppLayout =() => {
@@ -24,15 +26,19 @@ useEffect(()=> {
     setUserName(data.name);
 },[]);
  return   (
-    <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
+   
+    //  <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
+    
+     <Provider store={appStore}>
     <div className="App">
-       
+ 
         <Header />
-        
+      
         <Outlet/>
     </div>
-    </UserContext.Provider>
-
+   
+    </Provider>
+    //</UserContext.Provider>
     );
  };
 
@@ -57,6 +63,10 @@ useEffect(()=> {
         {
             path:"/restaurant/:resId",
             element:<RestrauntMenu />
+        },
+        {
+            path:"/Cart",
+            element:<Cart />
         },
         // {
         //     path:"/Grocery",

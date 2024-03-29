@@ -1,10 +1,12 @@
 import {RestrauCard,RestrauCardPromoted} from './RestrauCard'
 import resList from '../util/mockData';
-import { useState,useEffect,useContext } from 'react';
+//import React, { useState,useEffect } from 'react';
+import React, { useState,useEffect,useContext } from 'react';
 import Shimmer from '../components/Shimmer';
 import { Link } from 'react-router-dom';
 import useOnlineStatus from '../util/useOnlineStatus';
 import UserContext from '../util/UserContext';
+
 
 const Body =() =>{
     const [listofRestaturants,setlistofRestaturants]=useState([]);
@@ -25,23 +27,21 @@ const Body =() =>{
         setfilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       };
 const [searchText,setsearchText]=useState();
-const { loggedInUser,setUserName }  = useContext(UserContext);
+//const { loggedInUser,setUserName }  = useContext(UserContext);
 const onlineStatus = useOnlineStatus();
 if(onlineStatus===false){
 
     return (<h1>Seems like you are offline .Please connect to internet and try again...</h1>);
 }
 
-
-
-    return listofRestaturants.length == 0 ?<Shimmer/>: (<>
+    return  listofRestaturants.length == 0 ?<Shimmer/>:(<>
     
     {/* <div className="restrau-contatiner">
             {resList.map(restaturant => <RestrauCard key={restaturant.info.id} resData={restaturant} />)}
         </div> */}
-        <div className='m-10 p4'>
+        <div  className='m-10 p4'>
             <div className='flex items-center'>
-                <input type='text' className='border border-solid border-black' value={searchText} onChange={(e) => setsearchText(e.target.value)}/>
+                <input type='text' data-testid="searchInput" className='border border-solid border-black' value={searchText} onChange={(e) => setsearchText(e.target.value)}/>
             <button className="px-4 py-2 m-5 bg-green-100 flex items-center rounded-lg"
             onClick={()=> {
             console.log({listofRestaturants});
@@ -56,7 +56,7 @@ if(onlineStatus===false){
         </button>
        
         <div className='flex items-center'>
-         <button className="px-4 py-2 m-5 bg-gray-300  rounded-lg"  onClick={()=>
+         <button data-testid="btnTopRated" className="px-4 py-2 m-5 bg-gray-300  rounded-lg"  onClick={()=>
            {
             console.log("top rated cliked");
                const filteredlist2 = listofRestaturants.filter((resitems)=> resitems.info.avgRating > 4.5);

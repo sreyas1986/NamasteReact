@@ -1,3 +1,4 @@
+import React from 'react';
 import resList from '../util/mockData'
 import { CDN_URL } from '../util/constants.js'
 export const RestrauCard = (props) => {
@@ -11,9 +12,8 @@ export const RestrauCard = (props) => {
 
     return(
         
-        <div className="m-4 p4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-300"  >
-            <img alt="" className="p4 rounded-lg" 
-            src={CDN_URL+cloudinaryImageId} />
+        <div data-testid="resCard" className="m-4 p4 w-[250px] rounded-lg bg-gray-100 hover:bg-gray-300"  >
+            <img alt="" className="p4 rounded-lg" src={CDN_URL+cloudinaryImageId} />
                 <h3 className='font-bold p-3'>{name}</h3>
                 <h4>{cuisines.join(",")}</h4>
                 <h4>{avgRating}</h4>
